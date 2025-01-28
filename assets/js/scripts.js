@@ -24,3 +24,11 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 });
+
+wp_enqueue_script(
+  "chart-js",
+  "https://cdn.jsdelivr.net/npm/chart.js",
+  array(),
+  null,
+  true
+);

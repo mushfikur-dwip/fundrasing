@@ -1,18 +1,23 @@
-<div class="fundraising-dashboard">
-    <h1>Fundraising Dashboard</h1>
-    <div class="grid-container">
-        <div class="grid-item">
-            <h2>Total Funds Raised</h2>
-            <p>$10,000</p>
-        </div>
-        <div class="grid-item">
-            <h2>Active Campaigns</h2>
-            <p>5</p>
-        </div>
-        <div class="grid-item">
-            <h2>Total Donors</h2>
-            <p>200</p>
-        </div>
-    </div>
-    <canvas id="donation-chart"></canvas>
-</div>
+<h2>Active Campaigns</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Campaign Name</th>
+            <th>Funds Raised</th>
+            <th>Goal</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        $campaigns = fundraising_get_campaigns();
+        foreach ($campaigns as $campaign) {
+            echo "<tr>
+                    <td>{$campaign['title']}</td>
+                    <td>\${$campaign['raised']}</td>
+                    <td>\${$campaign['goal']}</td>
+                  </tr>";
+        }
+        ?>
+    </tbody>
+</table>
+<canvas id="donation-chart"></canvas>
